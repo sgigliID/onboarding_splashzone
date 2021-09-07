@@ -1,0 +1,60 @@
+{% load static %}
+<html>
+	<head>
+  		<link href="{% static 'css/divesite-styles.css' %}" rel="stylesheet">
+  		<link href="{% static 'css/print.css' %}" rel="stylesheet">
+  		<link href="{% static 'css/splashzone.css' %}" rel="stylesheet">
+  		<title>Splashzone | {% block page_title %}Industry Dive{% endblock %}</title>
+  		<link rel="shortcut icon" type="/image/png" href="{% static 'favicon.ico' %}"/>
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  		{% block extra_style %}{% endblock %}
+  </head>
+  <body class="">
+		<div class="page-container">
+			<header role="banner" {% if spoonser %}class="spoonsered"{% endif %}>
+				<nav id="top" class="site-menu">
+					<div class="site-menu-inner">
+						<div class="pub-logo-wrapper">
+						  <a class="t-dash-navigation" href="{% url 'home' %}">
+						  	<img src="{% static 'image/splashzonelogo.png' %}" class="pub-logo" />
+						  </a>
+						</div>
+						<div class="menu-content-wrapper" id="navbarSupportedContent">
+							<ul class="desktop-menu-main">
+								<li>
+								  <a href="{% url 'home' %}">
+								  	{{site.name}}
+								  </a>
+								</li>
+								<li>
+									<a href="{% url 'instructions' %}">Instructions</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</header>
+			{% if show_topics %}
+			<nav class="topics menu-bar js-menu-bar-transition" style="position: absolute; left: 0px;">
+                <ul class="list-no-bullets">
+                    <li>
+                        <a href="">Topics...</a>
+                    </li>
+                </ul>
+            </nav>
+            {% endif %}
+			<div id="page_content" class="page-wrapper">
+				<div class="page-inner-wrapper">
+					{% block page_content %}{% endblock %}
+				</div>
+					<section class="pre-footer">			
+					{% block pre_footer %} {% endblock %}
+					{% if show_footer_signup %}
+						{% include 'wavepool/includes/signup.html' %}
+					{% endif %}
+					</section>
+					<hr class="footer-hr">
+			</div>
+		</div>
+	</body>
+</html>

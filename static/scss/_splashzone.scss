@@ -1,0 +1,159 @@
+$dive-gray-2: #E9ECEF;
+$dive-blue: #288BD2;
+$dive-red: #D62828;
+
+code {
+   color: $dive-red; 
+}
+
+.page-inner-wrapper {
+    margin-top: 50px;
+}
+
+.page-wrapper {
+    padding-top: 105px;
+}
+
+.site-alert__message {
+    padding: 0px 20px;
+    a {
+        font-weight: bold;
+        color: $dive-blue;
+    }
+    &--inverse {
+        a {
+            font-weight: bold;
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+    }
+}
+
+.pagination_instructions {
+    margin-top: 20px;
+}
+
+#dfp-leaderboard-desktop {
+    background-image: url(../image/components/slash.png);
+}
+
+.signup.call-out {
+    margin-top: 60px !important;
+}
+
+.leaderboard-desktop {
+    display: block;
+    background-image: url(../image/components/slash.png);
+    height: 300px;
+    padding: 9px;
+    .spoonser {
+        border: 0pt none; 
+        margin: auto; 
+        text-align: center; 
+        position: relative;
+        top: 30%;
+        background-color: #ffffff;
+        padding: 6px;
+        border: $dive-blue 1px solid;
+        &_image {
+            width: 100%;
+            img {
+                height: 45px;
+            }
+        }
+        &_company {
+            width: 100%
+        }
+        &_copy {
+            font-style: italic;
+        }
+    }
+}
+
+a.page-anchor {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+#instructions {
+    margin-top: -80px;
+    .prompts {
+        margin-top: 33px;
+        &-links {
+            a {
+                text-decoration: none;
+                font-weight: bold;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        table {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid $dive-gray-2;
+            th, td {
+                text-align: left;
+                padding: 5px 20px 5px 5px;
+                border: 1px solid $dive-gray-2;
+            }
+        }
+        &-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            &_prompt {
+                margin-top: 25px;
+                border: 1px solid $dive-gray-2;
+                padding: 10px;
+            }
+        }
+        .objectives {
+            ul {
+                list-style-type: disc;
+            }
+            li {
+                margin-bottom: 0;
+            }
+        }
+        .scenarios {         
+            ul {
+                margin-top: 5px;
+                list-style-type: none;
+                li {
+                    margin-bottom: 1px;
+                    margin-left: 10px;
+                }
+            }
+        }
+        .screenshot {
+            width: 100%;
+            &-image {
+                border: 1px solid $dive-gray-2;
+                width: 66%;
+                margin: 0 auto;
+            }
+            &-text {
+                width: 66%;
+                margin: 0 auto;
+                text-align: center;
+                font-style: italic;
+                font-weight: bold;
+                color: $dive-red;
+            }
+            margin-bottom: 25px;
+        }
+    }
+    h2 {
+        font-size: 1.3rem;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+    h3 {
+        font-size: 1rem;
+        color: $dive-red;
+        text-transform: uppercase;
+    }
+}

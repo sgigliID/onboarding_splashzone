@@ -1,0 +1,91 @@
+{% extends 'base2.html' %}
+{% load static helper_tags %}
+{% block page_title %}Instructions{% endblock %}
+{% block page_content %}
+<div class="row" id="instructions">
+	<div class=" medium-centered medium-12 large-12">
+		<section id="main-content" class=" main-content columns medium-12 large-12">
+			<section class="feed-header layout-stack-xl">
+				<h1 class="feed-header__title">
+					Instructions
+				</h1>
+				
+        		<hr class="feed-header__divider">
+    		</section>
+    		<section class="instructions">
+    			<p>For each of the prompts below submit a pull request to <strong>your copy</strong> of the <code>splashzone template</code> repository that completes as much of the request as you can.</p>
+
+				<p>For each pull request, <strong>make sure to fill in the pull request template</strong> and <strong>go through the developer checklist</strong>.</p> Once you have done so, let your manager know that it is ready for review. Your manager will review your code for:
+				<ul>
+					<li><strong>Completeness</strong>: does your solution meet the requirements/acceptance criteria of the request?</li>
+					<li><strong>Style</strong>: does your code meet Industry Dive style guide standards?</li>
+					<li><strong>Readability</strong>: does your code include descriptive variable and method names? Does it include docstrings and code comments that document the functionality?</li>
+					<li><strong>Hygiene</strong>: does your code pass linting? Is any re-usable code DRY? Is code in the most appropriate location (e.g., in a view, model, or util/helper function)?</li>
+					<li><strong>Design</strong>: does your code appropriately use style guide components and meet front end style guide standards?</li>
+				</ul>
+				<p>Once your manager has reviewed your pull request, they will you provide you with feedback and request any changes or ask for clarification as needed.</p>
+				<div class="site-alert">
+				<div class="site-alert">
+				    <div class="row">
+				        <div class="columns">
+				            <div class="site-alert__message">
+			                    <strong>THIS IS NOT A TEST!</strong>
+			                    <p>These prompts are designed to familiarize you with the Dive Site landscape, help you learn to use Industry Dive Engineering resources such as the <a href="https://industrydive.atlassian.net/wiki/spaces/TECH/pages/704741727/Style+Guides" target="_blank">style guides</a> and <a href="https://divedesignsystem.com/3f6a94755/p/816b1e-snorkel" target="_blank">design system</a>, and get used to doing code reviews using our merge request template.</p>
+			                    <p>
+			                    	<strong>Take your time!</strong> There is no rush to get this done. Your focus should be on using the linked resources, and getting comfortable and confident with the environment. Don't worry about getting things perfect on your first pass. You will work with your manager/onboarding buddy to revise your code and get things just right. 
+			                    </p>
+			                    <p>By the time you have completed Splashzone, you should be able to:</p>
+			                    <ul>
+			                    	<li>Locate and use the backend/Python style guide</li>
+			                    	<li>Locate and use the frontend style guide</li>
+			                    	<li>Locate and use the Snorkel Design System</li>
+			                    	<li>Complete a pull/merge request that effectively communicates your code changes at a high standard</li>
+			                    	<li>Understand the basics of Dive Site's SiteModel</li>
+			                    	<li>Understand the basics of Django models, views, migrations, and admin site</li>
+			                    	<li>Understand the basics of implementing foundation CSS</li>
+			                    	<li>Be comfortable submitting your code for review</li>
+			                    </ul>
+			                    <p>Don't forget to ask for help if you get stuck!</p>
+				            </div>
+				        </div>
+				    </div>
+				</div>	
+				</div>
+    		</section>
+			<section class="prompts">
+				<h2 class="feed-header__title">Style Guide Links</h2>
+				<ul>
+					<li><a href="https://industrydive.atlassian.net/wiki/spaces/TECH/pages/755532019/CSS+style+guide" target="_blank">CSS Style Guide</a></li>
+					<li><a href="https://industrydive.atlassian.net/wiki/spaces/TECH/pages/700908242/HTML+style+guide" target="_blank">HTML Style Guide</a></li>
+					<li><a href="https://industrydive.atlassian.net/wiki/spaces/TECH/pages/639500407/Tech+Team+Backend+Style+Guide+Django+Python" target="_blank">Backend Style Guide (Django & Python)</a></li>
+					<li><a href="https://industrydive.atlassian.net/wiki/spaces/TECH/pages/687276097/Django+template+style+guide" target="_blank">Django template style guide</a></li>
+				</ul>
+			</section>
+			<section class="prompts">
+				<div class="site-alert site-alert--loud">
+				    <div class="row">
+				        <div class="columns">
+				            <div class="site-alert__message site-alert__message--inverse">
+				            	NOTE: you would normally receive Figma mocks for front-end tickets. For the purposes of these exercises, you will just get screenshots of examples. It is a good idea, however, to familiarize yourself with Figma using this <a href="https://industrydive.atlassian.net/wiki/spaces/TECH/pages/1446936948/Figma+101+for+Engineers" target="_blank">Figma 101 for Engineers</a> page. <a href="https://www.figma.com/file/jmRHFRhYAEtKw3JaSrgXXa/Sidebar-Boxes?node-id=224%3A650" target="_blank">Here is a great example</a> of a Figma mock that is relevant to these prompts.
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</section>
+			<section class="prompts prompts-links">
+				<h2 class="feed-header__title">Prompts</h2>
+					<ol>
+						{% for prompt in prompts %}
+							<li>
+								<a href="{% url 'prompts' prompt_id=forloop.counter %}">
+									{{prompt.title}} &#8594;
+								</a>
+							</li>
+						{% endfor %}
+					</ol>
+        	</section>
+
+		</section>
+	</div>
+</div> 
+{% endblock %}

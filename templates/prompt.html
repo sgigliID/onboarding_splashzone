@@ -1,0 +1,82 @@
+{% extends 'base2.html' %}
+{% load static helper_tags %}
+{% block page_title %}Prompt | {{prompt.title}}{% endblock %}
+{% block page_content %}
+
+<div class="row" id="instructions">
+	<div class=" medium-centered medium-12 large-12">
+		<section id="main-content" class=" main-content columns medium-12 large-12">
+			<section class="feed-header layout-stack-xl">
+				<h1 class="feed-header__title">
+					{{prompt.title}}
+				</h1>
+    		</section>
+			<section class="prompts">
+				<ul class="prompts-list">
+					<li class="prompts-list_prompt">
+						<div class="objectives">
+							<h3>Objectives</h3>
+							<ul>
+								{% for obj in prompt.objectives %} 
+								<li>{{obj}}</li>
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="description">
+							<h3>Description</h3>
+							<p>{{prompt.description}}</p>
+						</div>
+						<div class="objectives">
+							<h3>Acceptance Criteria</h3>
+							<ol>
+							{% for ac in prompt.AC %} 
+								{% with ac|gherkinize_step as ac_html %}
+									<li>{{ac_html|safe}}</li>
+								{% endwith %}
+							{% endfor %}
+							</ol>
+						</div>
+						{% if prompt.scenarios %}
+						<div class="scenarios">
+							<h3>Scenarios</h3>
+							{% for scenario in prompt.scenarios %} 
+							<ul>
+								<li>
+									<a href="#scenario-{{forloop.counter}}" id="scenario-{{forloop.counter}}" class="page-anchor">{{forloop.counter}}. {{scenario.title|safe}}</a>
+									<ul>  
+										{% for step in scenario.steps %}	
+										{% with step|gherkinize_step as step_html %}
+											<li>{{step_html|safe}}</li>
+										{% endwith %}
+										{% endfor %}
+									</ul>
+								</li>
+							</ul>
+								{% for source, desc in scenario.images %}
+								<div class="screenshot">
+									<div class="screenshot-image">
+										<img src='{% static "image/ac_screenshots/" %}{{source}}' />
+									</div>
+									<div class="screenshot-text">
+										{{desc}}
+									</div>
+								</div>
+								{% endfor %}
+							{% endfor %}
+						</div>
+						{% endif %}
+					</li>
+				</ul>
+			</section>
+			<section class="prompts">
+				{% if previous_prompt %}
+				<a style="float: left" href="{% url 'prompts' prompt_id=previous_prompt %}">&#8592; Previous Prompt</a>
+				{% endif %}
+				{% if next_prompt %}
+				<a style="float: right" href="{% url 'prompts' prompt_id=next_prompt %}">Next Prompt &#8594;</a>
+				{% endif %}
+			</section>
+		</section>
+	</div>
+</div> 
+{% endblock %}

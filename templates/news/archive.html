@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block page_title %}Archive{% endblock %}
+{% block page_content %}
+	<div class="row">
+		<div class="medium-10 medium-centered large-12">
+			<section id="main-content" class="main-content large-8 columns">
+				<section class="feed-header layout-stack-xl">
+					<h1 class="feed-header__title">
+						{% if searched %}Search Results{% else %}Archive{% endif %}
+					</h1>
+					
+            		<hr class="feed-header__divider">
+        		</section>
+				<section class="dash-feed"> 
+					{% if searched %}
+						<p class="help-text">Displaying results for "{{text_search_value}}"</p>
+					{% endif %}
+					{% include 'news/includes/news_feed.html' with feed=news_archive %}
+				</section>
+			</section>
+		</div>
+        <aside class="sidebar large-4 columns">
+            {% include 'wavepool/includes/sidebar.html' %}
+        </aside>
+	</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load static helper_tags %}
+
+<li class="row feed__item">
+    <div class="medium-4 columns">
+        <figure class="feed__image-container">
+            <a class="feed__image" href="{{feed_item.url}}">
+                <img src="{% static feed_item|story_image %}" alt="" width="275" height="130">
+            </a>
+        </figure>
+    </div>
+    <div class="medium-8 columns">
+        <h3 class="feed__title feed__title--display">
+            <a href="{{feed_item.url}}">{{feed_item.title}}
+        </a>
+        </h3>
+        {% if feed_item.teaser %}
+            <p class="feed__description">{{feed_item.teaser}}</p>
+        {% endif %}
+    </div>
+</li>

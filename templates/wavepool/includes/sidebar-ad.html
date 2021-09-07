@@ -1,0 +1,19 @@
+{% load static helper_tags %}
+
+<div class="hybrid-ad-wrapper hide-small show-large">
+	<div class="hybrid-ad-inner-wrapper">
+        <div class="hide-small show-large">
+        	<div class="leaderboard-desktop">
+		  		<div class="spoonser" style="">
+		  			<div class="spoonser_image">
+		  				<img src="{% static 'spoonsers/'|add:spoonser.logo %}" />
+		  			</div>
+		  			<div class="spoonser_company">
+		  				{{spoonser.company_name}}
+		  				<div class="spoonser_copy">{{spoonser.copy}}</div>
+		  			</div>
+		  		</div>
+		  	</div>
+        </div>
+    </div>
+</div>

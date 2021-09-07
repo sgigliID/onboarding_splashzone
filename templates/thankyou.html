@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block page_title %}Thank you for signing up!{% endblock %}
+{% block page_content %}
+<section class="first-section thanks-page">
+	<div class="row">
+        <div class="medium-11 medium-centered columns">
+            <p class="return-to-homepage"><a href="/">← Return to {{site.name}}</a></p>
+        </div>
+	</div>
+	<div class="row">
+		<div class="medium-8 medium-centered columns">
+            
+                <img class="thanks-icon" src="{% static '/image/components/thank-you.gif' %}">
+            
+			<h1 class="heading-03">Thanks for signing up!</h1>
+
+            <p>Check your inbox for an email from <a href="">newsletter@divenewsletter.com</a>. Make sure to check your spam folder and <a href="https://www.industrydive.com/whitelist-instructions/" target="_blank">add us to your Safe Senders list</a>. Please allow up to 48 hours for the messages to come through.</p>
+            <p>Still don't see it? <a href="">Send us a note.</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

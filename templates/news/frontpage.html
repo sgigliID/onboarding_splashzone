@@ -1,0 +1,56 @@
+{% extends 'base2.html' %}
+{% load static helper_tags %}
+
+{% block page_title %}News{% endblock %}
+{% block page_content %}
+    <section class="dash-top">
+        <div class="row">
+            <div class="large-12 medium-10 medium-centered columns">
+                <div class="large-6 columns">
+                    <section class="hero-article">
+                        <figure class="hero-article__container">
+                            <a href="{{ cover_story.url }}">
+                                <img src="{% static cover_story|story_image %}"  class="t-dash-hero-img" />
+                            </a>
+                            <h1><a href="{{ cover_story.url }}">{{ cover_story.title }}</a></h1>
+                            <p class="hero-article__teaser">{{ cover_story.teaser|safe  }}</p>
+                            <a class="call-out-link analytics t-dash-hero-readmore nowrap" href="{{ cover_story.url }}">Read more
+                                <span class="call-out-link__arrow">➔</span>
+                            </a>
+                        </figure>
+                    </section>
+                </div>
+                <div id="topstories" class="large-6 columns">
+                    <secton class="top-stories">
+                    <h2 class="dash-header">Top Stories</h2>
+                    <ol>
+                        {% for story in top_stories %}
+                        <li>
+                            <h3><a href="{{story.url}}">{{story.title}}</a></h3>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    </secton>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div class="medium-10 medium-centered large-12">
+            <section id="main-content" class="main-content large-8 columns">
+                <section class="dash-feed"> 
+                    <h2 class="dash-header hide-small show-large">The Latest</h2>
+                    {% include 'news/includes/news_feed.html' with feed=recent_stories %}
+                    <div class="pagination">
+                        <a href="{% url 'newspost_archive' %}" class="button button--soft">
+                            More stories<img class="button__icon button__icon--small button__icon--right" src="{% static 'image/components/right-arrow.svg' %}" alt="next icon">
+                        </a>
+                    </div>
+                </section>
+            </section>
+            <aside class="sidebar large-4 columns">
+                {% include 'wavepool/includes/sidebar.html' %}
+            </aside>
+        </div>
+    </div>
+{% endblock %}
